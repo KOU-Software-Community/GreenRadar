@@ -67,9 +67,11 @@ Fixing remaining issues and polishing the project
 
 Finalizing and rehearsing the project presentation
 
-## 🧩 Workflow
+## 🧩 Workflow and Data Diagram
 
-![Workflow Screenshot](https://github.com/KOU-Software-Community/GreenRadar/blob/main/workflowdiagram.png?raw=true)
+![Workflow Screenshot](https://github.com/KOU-Software-Community/GreenRadar/blob/main/assets/workflowdiagram.png?raw=true)
+
+![Data Diagram Screenshot](https://github.com/KOU-Software-Community/GreenRadar/blob/main/assets/datadiagram.png?raw=true)
 
 ## 🛠️ Tools, Languages & Software Used
 
