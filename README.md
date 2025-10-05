@@ -2,7 +2,7 @@
 
 ### Data-Driven Green Space Management Project
 
-## Team Name :
+## Team Name
 Apollo 13.1
 
 ## 🚀 About The Project
@@ -27,13 +27,13 @@ Pipeline is portable (CSV storage + containerized processing) and can be applied
 
 ## 🕒 Project Timeline (36 Hours)
 
-- 0–4 Hours
+- ### 0–4 Hours
 
 Finalizing the project idea
 
 Data team starts data collection and preprocessing
 
-- 4–8 Hours
+- ### 4–8 Hours
 
 Web team begins development
 
@@ -41,19 +41,19 @@ Processed data is handed over to the backend developer
 
 Initial reporting phase begins
 
-- 8–12 Hours
+- ### 8–12 Hours
 
 Creating the formulation for the tree-planting prediction mechanism
 
 Web team completes the first draft of the interface
 
-- 12–16 Hours
+- ### 12–16 Hours
 
 Integrating the prediction formulation into the web application
 
 Working on UI/UX and design details
 
-- 16–24 Hours
+- ### 16–24 Hours
 
 Preparing the Github repository and README.md file
 
@@ -61,7 +61,7 @@ Starting to work on the project presentation
 
 Beginning integration of the LLM mechanism
 
-- 24–36 Hours
+- ### 24–36 Hours
 
 Fixing remaining issues and polishing the project
 
