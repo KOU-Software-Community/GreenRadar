@@ -1,8 +1,7 @@
 import { fal } from "@fal-ai/client"
 import { MainPrompt } from "./prompt.js"
 fal.config({
-  credentials: "e9318e03-ffc8-4061-9f05-f135301e32d7:3bf69eb701bcda6c4e795e88e68b7360"
-})
+  credentials: process.env.FAL_API_KEY})
 
 
 function cleanGeminiJSON(response) {

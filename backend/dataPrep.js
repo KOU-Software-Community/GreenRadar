@@ -86,13 +86,13 @@ export const collectData = (targetDate, polygon, type) => {
           }
 
           if (isNaN(val)) {
-            console.warn(`⚠️ Geçersiz sayısal değer: ${rawValue}, koordinat: [${lon}, ${lat}]`);
+            console.warn(`Geçersiz sayısal değer: ${rawValue}, koordinat: [${lon}, ${lat}]`);
             return;
           }
           
           // SADECE TreeCover için 0 değerlerini filtrele
           if (type === "TreeCover" && val === 0) {
-            console.warn(`⚠️ TreeCover 0 değeri filtrelendi, koordinat: [${lon}, ${lat}]`);
+            console.warn(` TreeCover 0 değeri filtrelendi, koordinat: [${lon}, ${lat}]`);
             return;
           }
           // Diğer tipler için 0 değerlerini koru
@@ -101,7 +101,7 @@ export const collectData = (targetDate, polygon, type) => {
         // Tarih kontrolünü düzelt
         const rowDate = new Date(row.date);
         if (isNaN(rowDate.getTime())) {
-          console.warn(`⚠️ Geçersiz satır tarihi: ${row.date}, koordinat: [${lon}, ${lat}]`);
+          console.warn(` Geçersiz satır tarihi: ${row.date}, koordinat: [${lon}, ${lat}]`);
           return;
         }
 
@@ -133,7 +133,7 @@ export const collectData = (targetDate, polygon, type) => {
     stream.on("end", () => {
       try {
         if (insidePoints.length === 0) {
-          console.warn("⚠️ Poligon içinde nokta bulunamadı.");
+          console.warn(" Poligon içinde nokta bulunamadı.");
           return resolve(turf.featureCollection([]));
         }
 
@@ -142,8 +142,8 @@ export const collectData = (targetDate, polygon, type) => {
         // Tarih bilgilerini debug et
         const dates = insidePoints.map(p => p.dateString);
         const uniqueDates = [...new Set(dates)];
-        console.log(`📅 Bulunan benzersiz tarihler: ${uniqueDates.slice(0, 10).join(', ')}${uniqueDates.length > 10 ? '...' : ''}`);
-        console.log(`🎯 Hedef tarih: ${targetDate}`);
+        console.log(` Bulunan benzersiz tarihler: ${uniqueDates.slice(0, 10).join(', ')}${uniqueDates.length > 10 ? '...' : ''}`);
+        console.log(` Hedef tarih: ${targetDate}`);
 
         // KOORDİNAT BAZLI EN YAKIN TARİH BULMA
         // Önce koordinatları grupla
@@ -175,7 +175,7 @@ export const collectData = (targetDate, polygon, type) => {
           bestPoints.push(bestPoint);
         }
 
-        console.log(`✅ Koordinat bazlı filtreleme sonrası: ${bestPoints.length} nokta`);
+        console.log(` Koordinat bazlı filtreleme sonrası: ${bestPoints.length} nokta`);
 
         // Tarihe göre sırala (isteğe bağlı)
         bestPoints.sort((a, b) => a.date - b.date);
@@ -187,14 +187,14 @@ export const collectData = (targetDate, polygon, type) => {
         const zeroCount = values.filter(v => v === 0).length;
         if (zeroCount > 0) {
           if (type === "TreeCover") {
-            console.error(`❌ HATA: Hala ${zeroCount} adet 0 değeri bulunuyor!`);
+            console.error(` HATA: Hala ${zeroCount} adet 0 değeri bulunuyor!`);
           } else {
-            console.log(`📝 ${zeroCount} adet 0 değeri korunuyor (${type} verisi)`);
+            console.log(` ${zeroCount} adet 0 değeri korunuyor (${type} verisi)`);
           }
         }
         
-        console.log(`📈 Son değer aralığı: ${Math.min(...values)} - ${Math.max(...values)}`);
-        console.log(`🗓️ Kullanılan tarih aralığı: ${bestPoints[0]?.dateString} - ${bestPoints[bestPoints.length - 1]?.dateString}`);
+        console.log(`Son değer aralığı: ${Math.min(...values)} - ${Math.max(...values)}`);
+        console.log(`Kullanılan tarih aralığı: ${bestPoints[0]?.dateString} - ${bestPoints[bestPoints.length - 1]?.dateString}`);
 
         const featureCollection = turf.featureCollection(
           bestPoints.map((p) =>
